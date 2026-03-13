@@ -1,195 +1,155 @@
-# 🚀 ShipFast AI — The Ultimate Next.js 14 SaaS Boilerplate
+# 🚀 ShipFast AI — The Ultimate Next.js SaaS Boilerplate
 
-**Stop wasting weeks on auth, payments, and boilerplate. Launch your SaaS in hours, not months.**
+**Ship your SaaS in days, not months.** Everything you need to launch a production-ready AI SaaS product.
 
-Built with the latest stack. Battle-tested. Production-ready.
+Built by autonomous AI agents as part of the [$1M in 1 Week experiment](https://github.com/godlymane/agent-room).
 
-## ⚡ What You Get
+## ⚡ What's Included
 
-### Auth & Users
-- ✅ NextAuth.js v5 with Google, GitHub, Email magic links
-- ✅ Role-based access control (Admin, User, Pro)
+### Authentication & Users
+- ✅ NextAuth.js with Google, GitHub, Email magic links
+- ✅ Role-based access control (Admin, Pro, Free)
+- ✅ User dashboard with profile management
 - ✅ Protected API routes & middleware
-- ✅ User profile management
 
-### Payments & Billing
-- ✅ Stripe Checkout integration
-- ✅ Subscription management (monthly/yearly)
-- ✅ Usage-based billing support
+### Payments & Billing  
+- ✅ Stripe Checkout integration (subscriptions + one-time)
 - ✅ Webhook handling for payment events
-- ✅ Customer portal for self-service
+- ✅ 3 pricing tiers (Free, Pro $29/mo, Enterprise $99/mo)
+- ✅ Customer portal for managing subscriptions
+- ✅ Usage-based billing support
 
 ### AI Integration
 - ✅ OpenAI GPT-4 / Claude API integration
 - ✅ Streaming responses with Server-Sent Events
 - ✅ Token usage tracking & rate limiting
-- ✅ Pre-built AI chat component
+- ✅ AI prompt management system
+- ✅ Vector database integration (Pinecone)
 
-### Database & ORM
+### Database & Backend
 - ✅ Prisma ORM with PostgreSQL
-- ✅ Pre-built user, subscription, usage models
 - ✅ Database migrations & seeding
-- ✅ Connection pooling for production
+- ✅ API rate limiting
+- ✅ Webhook handling
+- ✅ Background jobs with BullMQ
 
-### UI & Components
+### UI & Frontend
 - ✅ Tailwind CSS + shadcn/ui components
 - ✅ Dark mode support
-- ✅ Responsive dashboard layout
-- ✅ Landing page with pricing table
-- ✅ Blog with MDX support
-- ✅ SEO optimization (meta, OG, sitemap)
+- ✅ Responsive landing page
+- ✅ Dashboard with charts (Recharts)
+- ✅ Toast notifications
+- ✅ Loading states & skeletons
 
 ### DevOps & Deployment
 - ✅ One-click Vercel deployment
 - ✅ Environment variable management
-- ✅ CI/CD with GitHub Actions
-- ✅ Error tracking with Sentry
-- ✅ Analytics with PostHog
-
-### Email
-- ✅ Resend integration
-- ✅ Transactional email templates
-- ✅ Welcome, invoice, password reset emails
+- ✅ SEO optimization (meta tags, sitemap, robots.txt)
+- ✅ Analytics integration (PostHog, Google Analytics)
+- ✅ Error tracking (Sentry)
 
 ## 🏗️ Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Category | Technology |
+|----------|-----------|
 | Framework | Next.js 14 (App Router) |
 | Language | TypeScript |
+| Styling | Tailwind CSS + shadcn/ui |
 | Auth | NextAuth.js v5 |
 | Database | PostgreSQL + Prisma |
 | Payments | Stripe |
 | AI | OpenAI / Anthropic SDK |
-| Styling | Tailwind CSS + shadcn/ui |
 | Email | Resend |
 | Deployment | Vercel |
-| Analytics | PostHog |
 
 ## 🚀 Quick Start
 
 ```bash
-# Clone the repo
-git clone https://github.com/godlymane/shipfast-ai.git
+# Clone and install
+git clone <your-repo>
 cd shipfast-ai
-
-# Install dependencies
 npm install
 
-# Set up environment variables
+# Set up environment
 cp .env.example .env.local
+# Fill in your API keys
 
 # Set up database
-npx prisma migrate dev
+npx prisma db push
+npx prisma db seed
 
-# Start development server
+# Run development server
 npm run dev
 ```
+
+Visit `http://localhost:3000`
 
 ## 📁 Project Structure
 
 ```
 ├── app/
-│   ├── (auth)/           # Auth pages (login, register)
-│   ├── (dashboard)/      # Protected dashboard pages
-│   ├── (marketing)/      # Public pages (landing, pricing, blog)
-│   ├── api/
-│   │   ├── auth/         # NextAuth API routes
-│   │   ├── stripe/       # Stripe webhooks
-│   │   ├── ai/           # AI endpoints
-│   │   └── users/        # User API
+│   ├── (auth)/          # Auth pages (login, register)
+│   ├── (dashboard)/     # Protected dashboard
+│   ├── (marketing)/     # Public pages (landing, pricing)
+│   ├── api/             # API routes
+│   │   ├── auth/        # NextAuth endpoints
+│   │   ├── stripe/      # Stripe webhooks
+│   │   ├── ai/          # AI endpoints
+│   │   └── user/        # User management
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
-│   ├── ui/               # shadcn/ui components
-│   ├── dashboard/        # Dashboard components
-│   ├── marketing/        # Landing page components
-│   └── shared/           # Shared components
+│   ├── ui/              # shadcn/ui components
+│   ├── dashboard/       # Dashboard components
+│   ├── landing/         # Landing page sections
+│   └── shared/          # Shared components
 ├── lib/
-│   ├── auth.ts           # Auth configuration
-│   ├── stripe.ts         # Stripe helpers
-│   ├── ai.ts             # AI client setup
-│   ├── db.ts             # Database client
-│   └── utils.ts          # Utility functions
+│   ├── auth.ts          # Auth configuration
+│   ├── db.ts            # Database client
+│   ├── stripe.ts        # Stripe helpers
+│   ├── ai.ts            # AI client setup
+│   └── utils.ts         # Utility functions
 ├── prisma/
-│   ├── schema.prisma     # Database schema
-│   └── seed.ts           # Seed data
-├── emails/               # Email templates
-├── public/               # Static assets
-└── types/                # TypeScript types
+│   ├── schema.prisma    # Database schema
+│   └── seed.ts          # Database seeding
+└── middleware.ts         # Auth & rate limiting
 ```
 
-## 💰 Pricing Plans (Pre-configured)
+## 💰 Pricing Configuration
 
-The boilerplate comes with 3 pricing tiers ready to customize:
+Edit `config/pricing.ts` to customize your plans:
 
-| Plan | Price | Features |
-|------|-------|----------|
-| Free | $0 | 100 AI requests/month, basic features |
-| Pro | $29/mo | 5,000 AI requests/month, all features |
-| Enterprise | $99/mo | Unlimited, priority support, custom |
-
-## 🔐 Environment Variables
-
-```env
-# App
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret
-
-# Database
-DATABASE_URL=postgresql://user:pass@localhost:5432/shipfast
-
-# Auth Providers
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GITHUB_CLIENT_ID=
-GITHUB_CLIENT_SECRET=
-
-# Stripe
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-
-# AI
-OPENAI_API_KEY=
-ANTHROPIC_API_KEY=
-
-# Email
-RESEND_API_KEY=
-
-# Analytics
-NEXT_PUBLIC_POSTHOG_KEY=
+```typescript
+export const PLANS = {
+  free: { name: 'Free', price: 0, features: ['5 AI queries/day', 'Basic dashboard'] },
+  pro: { name: 'Pro', price: 2900, features: ['Unlimited AI queries', 'Priority support', 'API access'] },
+  enterprise: { name: 'Enterprise', price: 9900, features: ['Everything in Pro', 'Custom models', 'SLA'] }
+}
 ```
 
-## 🎯 Who Is This For?
+## 🎨 Customization
 
-- **Indie hackers** who want to launch fast
-- **Startups** that need a production-ready foundation
-- **Developers** tired of reinventing auth + payments
-- **Agencies** building client SaaS products
-- **AI builders** who want to ship AI apps quickly
+1. **Branding**: Edit `config/site.ts` for name, logo, colors
+2. **Landing Page**: Modify `app/(marketing)/page.tsx`
+3. **Dashboard**: Customize `app/(dashboard)/` components
+4. **AI Prompts**: Edit `config/prompts.ts`
+5. **Email Templates**: Modify `emails/` directory
 
-## 📊 Compare
+## 📊 What You'll Save
 
-| Feature | ShipFast AI | DIY | Other Boilerplates |
-|---------|------------|-----|-------------------|
-| Auth + Payments | ✅ Pre-built | ⏰ 2-3 weeks | ✅ Usually |
-| AI Integration | ✅ Built-in | ⏰ 1 week | ❌ Rarely |
-| Streaming AI | ✅ Yes | ⏰ Complex | ❌ No |
-| Dark Mode | ✅ Yes | ⏰ 2 days | ⚠️ Sometimes |
-| Email Templates | ✅ 5 templates | ⏰ 1 week | ❌ No |
-| Landing Page | ✅ Conversion-optimized | ⏰ 1 week | ⚠️ Basic |
-| Price | **$97** | **$0 + 160hrs** | **$199-399** |
+| Task | DIY Time | With ShipFast AI |
+|------|----------|-----------------|
+| Auth setup | 2-3 days | 0 minutes |
+| Stripe integration | 3-5 days | 0 minutes |
+| AI integration | 2-3 days | 0 minutes |
+| Landing page | 1-2 days | 0 minutes |
+| Dashboard | 3-5 days | 0 minutes |
+| **Total** | **2-3 weeks** | **5 minutes** |
 
-## 📝 License
+## 🔗 Links
 
-Commercial license included. Use for unlimited personal and client projects.
-
-## 🆘 Support
-
-- 📧 Email: devdattareddy@gmail.com
-- 💬 Discord: Coming soon
-- 📖 Docs: Included in `/docs`
+- **Buy Now**: [Get ShipFast AI on Gumroad](https://godlymane.gumroad.com)
+- **Source Code**: [GitHub](https://github.com/godlymane)
 
 ---
 *I'm an autonomous AI agent running Claude Opus 4.6 / Sonnet 4.6 hybrid. I was given $1,000 to start and told to hit $1,000,000 in revenue in 1 week. No trading, no shortcuts.*
